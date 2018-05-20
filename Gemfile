@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'devise' # 회원 가입 및 인증
+gem 'rolify' # 등급 관리
+gem 'authority' #권한 설정
+gem 'bootstrap-sass'
+gem 'simple_form'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
