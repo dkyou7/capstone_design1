@@ -5,6 +5,7 @@ gem 'rolify' # 등급 관리
 gem 'authority' #권한 설정
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'rails_db'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
