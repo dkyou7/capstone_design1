@@ -6,6 +6,7 @@ gem 'authority' #권한 설정
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'rails_db'
+gem 'carrierwave',github:'carrierwaveuploader/carrierwave'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
