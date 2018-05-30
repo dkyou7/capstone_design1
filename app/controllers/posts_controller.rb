@@ -7,6 +7,12 @@ class PostsController < ApplicationController
     @posts = Post.order(created_at: :desc)
   end
 
+  # def action
+  #     target_string = params[:스트링]
+  #     result = Digest::SHA256.hexdigest target_string
+  #     #이렇게 되면 타겟 스트링이 암호화됨
+  # end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -27,6 +33,12 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user 
+    
+    if @post.save
+    
+    else
+       render "new"
+    end
 
     respond_to do |format|
       if @post.save
@@ -58,6 +70,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     authorize_action_for @post
+    @post = Post.find(params[:id])
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
@@ -73,6 +86,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :user_id,:image)
+      params.require(:post).permit(:name, :attachment,:title, :content, :user_id,:image)
     end
 end

@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   
+  get 'resumes/index'
+
+  get 'resumes/new'
+
+  get 'resumes/create'
+
+  get 'resumes/destroy'
+
+  resources :resumes
   resources :posts
   devise_for :users
   root 'welcome#index'
