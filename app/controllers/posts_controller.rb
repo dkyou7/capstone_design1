@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   #     #이렇게 되면 타겟 스트링이 암호화됨
   # end
 
+
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -32,10 +33,12 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    require 'digest'
+    @post.hashstring = Digest::SHA256.hexdigest @post.content
     @post.user = current_user 
-    
+    @post.save
     if @post.save
-    
+       
     else
        render "new"
     end
@@ -44,6 +47,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
+            
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -86,6 +90,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:name, :attachment,:title, :content, :user_id,:image)
+      params.require(:post).permit(:name, :attachment,:title, :content, :user_id,:image,:hashstring)
     end
 end

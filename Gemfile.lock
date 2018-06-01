@@ -220,6 +220,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  json
   rails (= 4.2.5)
   rails_db
   rolify

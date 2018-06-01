@@ -8,6 +8,7 @@ gem 'simple_form'
 gem 'rails_db'
 gem 'carrierwave', '~> 0.9'
 gem 'tzinfo-data',platforms: [:mingw,:mswin,:x64_mingw,:jruby]
+gem 'json'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

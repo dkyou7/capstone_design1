@@ -9,6 +9,9 @@ class ResumesController < ApplicationController
    
    def create
       @resume = Resume.new(resume_params)
+      require 'digest'
+      @resume.hashstring = Digest::SHA256.hexdigest @resume.attachment
+      @resume.save
       if @resume.save
          redirect_to resumes_path, notice: "The resume #{@resume.name} has been uploaded."
       else
@@ -25,7 +28,7 @@ class ResumesController < ApplicationController
    
    private
       def resume_params
-      params.require(:resume).permit(:name, :attachment)
+      params.require(:resume).permit(:name, :attachment,:hashstring)
    end
    
 end

@@ -15,5 +15,13 @@
   <%= image_tag("#{@post.image}") %>
 </p>
 
+
+<p>
+  <strong>HashingData:</strong>
+  <%= @post.hashstring %>
+</p>
+
+<button class="downhash btn btn-default" download>다운로드</button>
+<br><br>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

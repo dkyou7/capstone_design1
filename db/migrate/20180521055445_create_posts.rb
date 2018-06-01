@@ -3,10 +3,12 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.text :content
+      t.string :hashstring
       t.references :user, index: true, foreign_key: true
-
+      
+      
       t.timestamps null: false
     end
-    add_index :posts, :user_id
+    # add_index :posts, :user_id
   end
 end
